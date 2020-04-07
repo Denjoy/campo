@@ -26,6 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <?=
+    \abcms\multilanguage\widgets\TranslationView::widget([
+        'model' => $model,
+    ])
+    ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [

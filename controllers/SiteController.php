@@ -2,6 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Banners;
+use app\models\Products;
+use app\models\Settings;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +64,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $settings = Settings::getSettings();
+        $products = Products::getProducts();
+        $banners = Banners::getBanners();
+        return $this->render('index',[
+            'settings'=>$settings,
+        ]);
     }
 
     /**

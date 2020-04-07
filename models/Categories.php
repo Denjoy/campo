@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use abcms\multilanguage\behaviors\ModelBehavior;
+use abcms\multilanguage\Multilanguage;
 use Yii;
 
 /**
@@ -23,6 +25,17 @@ class Categories extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'categories';
+    }
+
+    public function behaviors() {
+        return [
+            'translate' => [
+                'class' => \abcms\multilanguage\behaviors\ModelBehavior::className(),
+                'attributes' => [
+                    'name',
+                ],
+            ]
+        ];
     }
 
     /**

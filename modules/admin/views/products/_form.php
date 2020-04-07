@@ -35,6 +35,8 @@ use yii\widgets\ActiveForm;
         echo $form->field($model, 'category_id')->dropDownList($listData)
     ?>
 
+    <?= \abcms\multilanguage\widgets\TranslationForm::widget(['model' => $model]) ?>
+
     <?php
     echo $form->field($model, 'image')->widget(FileInput::classname(), [
         'name' => 'input-uk',

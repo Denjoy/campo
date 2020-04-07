@@ -26,6 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <?=
+    \abcms\multilanguage\widgets\TranslationView::widget([
+        'model' => $model,
+    ])
+    ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -37,7 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             'discount',
             'percentage',
-            'category_id',
+            'category_id'=>[
+                'label' => 'Category',
+                'value' => $model->getCategoryName($model->category_id),
+            ],
             'is_delete',
             'created_at',
             'updated_at',

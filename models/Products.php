@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use abcms\multilanguage\behaviors\ModelBehavior;
 use abcms\multilanguage\Multilanguage;
 use Yii;
 use yii\base\ErrorException;
@@ -34,6 +35,18 @@ class Products extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'products';
+    }
+
+    public function behaviors() {
+        return [
+            'translate' => [
+                'class' => \abcms\multilanguage\behaviors\ModelBehavior::className(),
+                'attributes' => [
+                    'title',
+                    'description:text-area',
+                ],
+            ]
+        ];
     }
 
     /**
@@ -116,7 +129,7 @@ class Products extends \yii\db\ActiveRecord
     public function getCategoryName($id)
     {
         try {
-            return Categories::findOne($id)->title;
+            return Categories::findOne($id)->name;
         }
         catch (ErrorException $ex)
         {
@@ -126,7 +139,7 @@ class Products extends \yii\db\ActiveRecord
 
     public  static  function  getAll($pageSize = 10, $category_id)
     {
-        $query = Catalog::find();
+        $query = Products::find();
         $count = $query->count();
         $pagination = new Pagination(['totalCount'=>$count, 'pageSize'=>$pageSize]);
 
@@ -151,7 +164,7 @@ class Products extends \yii\db\ActiveRecord
 
     public static function getProducts()
     {
-        $settings = Catalog::find()
+        $settings = Products::find()
             ->andWhere(['id' => SORT_DESC])
             ->andWhere(['is_delete' => '0'])
             ->all();

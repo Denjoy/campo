@@ -31,7 +31,7 @@ class Settings extends \yii\db\ActiveRecord
             'translate' => [
                 'class' => \abcms\multilanguage\behaviors\ModelBehavior::className(),
                 'attributes' => [
-                    'value:text-area',
+                    'value',
                 ],
             ]
         ];
@@ -64,7 +64,7 @@ class Settings extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getSettings()
+    public static function getSettings()
     {
         $settings = Settings::find()
             ->all();
