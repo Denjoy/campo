@@ -77,7 +77,6 @@ class Banners extends \yii\db\ActiveRecord
     public static function getBanners()
     {
         $banners = Banners::find()
-            ->orderBy(['position' => SORT_ASC])
             ->andWhere(['is_delete' => '0'])
             ->all();
 

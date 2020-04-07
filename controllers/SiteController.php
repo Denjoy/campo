@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Banners;
+use app\models\Categories;
 use app\models\Products;
 use app\models\Settings;
 use Yii;
@@ -67,8 +68,12 @@ class SiteController extends Controller
         $settings = Settings::getSettings();
         $products = Products::getProducts();
         $banners = Banners::getBanners();
+        $categories = Categories::getCategory();
         return $this->render('index',[
             'settings'=>$settings,
+            'products'=>$products,
+            'banners'=>$banners,
+            'categories'=>$categories,
         ]);
     }
 

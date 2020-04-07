@@ -17,5 +17,9 @@ use yii\widgets\LinkPager;
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-    <p><?= settings['header'] ?></p>
+    <?php foreach ($products as $product) {?>
+        <?= $product->title ?>
+        <img src="<?= $product->getImage()?>">
+        <?= $product->description?>
+    <?php }?>
 </div>

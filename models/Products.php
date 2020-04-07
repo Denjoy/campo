@@ -165,7 +165,6 @@ class Products extends \yii\db\ActiveRecord
     public static function getProducts()
     {
         $settings = Products::find()
-            ->andWhere(['id' => SORT_DESC])
             ->andWhere(['is_delete' => '0'])
             ->all();
 
