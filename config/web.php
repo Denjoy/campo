@@ -11,6 +11,8 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'language' => 'en',
+    'sourceLanguage' => 'en',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -44,9 +46,11 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            'class' => abcms\multilanguage\UrlManager::className(),
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<lang:\w{2}>/<controller>/<action>/' => '<controller>/<action>',
             ],
         ],
     ],

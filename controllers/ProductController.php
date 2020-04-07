@@ -2,12 +2,16 @@
 
 namespace app\controllers;
 
+use app\models\Category;
+use app\models\ImageUpload;
 use Yii;
 use app\models\Products;
 use app\models\ProductsSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Products model.

@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use abcms\multilanguage\behaviors\ModelBehavior;
+use abcms\multilanguage\Multilanguage;
 use Yii;
 use app\models\Settings;
 use app\models\search\SettingsSearch;

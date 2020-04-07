@@ -11,16 +11,13 @@ use yii\widgets\ActiveForm;
 <div class="settings-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <h2>English Translation</h2>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'is_delete')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= \abcms\multilanguage\widgets\TranslationForm::widget(['model' => $model]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

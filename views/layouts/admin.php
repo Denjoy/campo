@@ -59,7 +59,7 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
+    <?= abcms\multilanguage\widgets\LanguageBar::widget() ?>
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

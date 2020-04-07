@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use abcms\multilanguage\behaviors\ModelBehavior;
+use abcms\multilanguage\Multilanguage;
 use Yii;
 
 /**
@@ -22,6 +24,17 @@ class Settings extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'settings';
+    }
+
+    public function behaviors() {
+        return [
+            'translate' => [
+                'class' => \abcms\multilanguage\behaviors\ModelBehavior::className(),
+                'attributes' => [
+                    'value:text-area',
+                ],
+            ]
+        ];
     }
 
     /**
@@ -49,5 +62,20 @@ class Settings extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    public function getSettings()
+    {
+        $settings = Settings::find()
+            ->all();
+
+        $translatedModels = Multilanguage::translateMultiple($settings);
+
+        $filtered_models = [];
+        foreach ($translatedModels as $m) {
+            $filtered_models[$m->name] = $m->value;
+        }
+
+        return $filtered_models;
     }
 }

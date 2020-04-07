@@ -60,4 +60,44 @@ class Categories extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Products::className(), ['category_id' => 'id']);
     }
+    public function getProductsCount()
+    {
+        return $this->getProducts()->count();
+    }
+    public function getCategories()
+    {
+        $categories = Categories::find()
+            ->andWhere(['is_delete' => '0'])
+            ->indexBy('id')
+            ->all();
+
+        return $categories;
+    }
+    public static function getAll()
+    {
+        return Categories::find()->all();
+    }
+    public static function getCategory()
+    {
+        $settings = Categories::find()
+            ->all();
+
+        $translatedModels = Multilanguage::translateMultiple($settings);
+
+        return $translatedModels;
+    }
+    public static function getCatalogByCategory($id)
+    {
+        $query = Products::find()->where(['category_id'=>$id]);
+        $count = $query->count();
+        $pagination = new Products(['totalCount' => $count, 'pageSize'=>1]);
+
+        $catalog = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        $data['catalog'] = $catalog;
+        $data['pagination'] = $pagination;
+
+        return $data;
+    }
 }
