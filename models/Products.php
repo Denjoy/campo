@@ -137,7 +137,7 @@ class Products extends \yii\db\ActiveRecord
         }
     }
 
-    public  static  function  getAll($pageSize = 10, $category_id)
+    public  static  function  getAll($pageSize, $category_id)
     {
         $query = Products::find();
         $count = $query->count();

@@ -7,6 +7,7 @@ use app\models\Categories;
 use app\models\Products;
 use app\models\Settings;
 use Yii;
+use yii\base\Model;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -65,6 +66,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $productsF= Products::getProductsByCategory(1);
+        $productsC= Products::getProductsByCategory(2);
         $settings = Settings::getSettings();
         $products = Products::getProducts();
         $banners = Banners::getBanners();
@@ -74,6 +77,8 @@ class SiteController extends Controller
             'products'=>$products,
             'banners'=>$banners,
             'categories'=>$categories,
+            'productsF'=>$productsF,
+            'productsC'=>$productsC,
         ]);
     }
 

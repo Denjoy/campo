@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Prompt|Roboto:300');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+$white:#f8f6f6;
+$gray:#747474;
+$lightish-gray:#ebebeb;
+$lightish-red:#f26c4f;
+$brown: rgba(255, 255, 255, 0.82);
+$dark-blue:#171f23;
+
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	scroll-behavior: smooth;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+h1{
+	padding: 32px 0;
+	color: #000;
+	text-align: center;
+	font-size: 40px;
+}
+h2{
+	padding-bottom: 24px;
+	color: #000;
+}
+p{
+	padding-bottom: 20px;
+}
+body{
+	font-family: 'Poppins', sans-serif;
+	background-color: $brown;
+}
+header{
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	margin-bottom:-170px;
+	.logo{
+		padding: 10px;
+		text-align: center;
+		img{
+			width: 300px;
+		}
+	}
+	.nav{
+		padding: 20px;
+		text-align: center;
+		a{
+			color: $lightish-red;
+			margin-left: 30px;
+			margin-right: 20px;
+		}
+	}
+}
+.banners-img-element{
+	img{
+		width: 100%;
+		height: auto;
+		max-height: 766px;
+	}
+}
+.products{
+	.product-image{
+		img{
+			width: 350px;
+			height: auto;
+			max-height: 255px;
+		}
+	}
+	.left-slider{
+		padding-bottom: 40px;
+	}
+	.right-slider{
+		.product-image{
+			img{
+				float: right;
+			}
+		}
+	}
+}
+.about-us{
+	p{
+		margin:0 20%;
+	}
+}
