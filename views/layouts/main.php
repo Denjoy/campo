@@ -34,10 +34,9 @@ MainAsset::register($this);
     <nav>
         <div class="nav" id="Nav">
             <a href="#welcome">Hello</a>
-            <a href="">Products</a>
-            <a href="">About Us</a>
-            <a href="">Why you need choose us</a>
-            <a href="">Contact</a>
+            <a href="#products">Products</a>
+            <a href="#about-us">About Us</a>
+            <a href="#contact-us">Contact</a>
         </div>
     </nav>
 </header>
@@ -54,17 +53,17 @@ MainAsset::register($this);
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img src="" alt="">
                 <h2>Because 1</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa cum dolorem doloremque et eum ex non quia, quos, suscipit temporibus velit! Adipisci consequuntur dolores laudantium minima quam quibusdam velit.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img src="" alt="">
                 <h2>Because 2</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam atque facere fugit inventore magni quibusdam quidem quisquam sequi sunt. Amet autem excepturi, expedita harum magni quae repudiandae voluptate voluptates?</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img src="" alt="">
                 <h2>Because 3</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam architecto cumque, deserunt earum id iste molestiae natus nisi porro possimus praesentium quam quidem reprehenderit saepe sapiente sit suscipit voluptatibus!</p>
@@ -72,33 +71,108 @@ MainAsset::register($this);
         </div>
     </div>
 </section>
-<section class="contact-us" id="contact-us">
+<section class="order-now" id="order-now">
     <div class="title">
-        <h1></h1>
+        <h1>Order now</h1>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p>First name</p>
-                <input type="text" name="First name"></div>
-            <div class="col-md-6">
-                <p>Second name</p>
-                <input type="text" dirname="Second Name"></div>
-            <div class="col-md-6">
-                <p>E-mail</p>
-                <input type="text" value="E-mail"></div>
-            <div class="col-md-6">
-                <p>Phone</p>
-                <input type="text" value="Phone"></div>
-            <p>Description</p>
-            <input type="text" value="Description"></div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>First name</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="First name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Second name</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="Second Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Adress</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="Adress">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>City / Village</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="City">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 right-side">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Region</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="Region">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Post Index, ZIP</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="ZIP">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Phone</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>E-mail</p>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" placeholder="E-mail">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="send">
+            <button>Send</button>
+        </div>
+        </div>
+<!--        <div class="description">-->
+<!--            <p>Description</p>-->
+<!--            <textarea placeholder="Description"></textarea>-->
+<!--        </div>-->
     </div>
 </section>
+<div class="contact-us" id="contact-us">
+    <h2>Contacts</h2>
+    <div class="contact">
+        <p>Vadim</p>
+        <p>+380903292323</p>
+    </div>
+    <div class="contact">
+        <p>Zhenya</p>
+        <p>+380503823123</p>
+    </div>
+</div>
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Fireplace <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <span>+380502380308</span>
+        <p class="pull-right">Developed by Denjoy</p>
+<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
     </div>
 </footer>
 

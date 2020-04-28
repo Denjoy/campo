@@ -21,7 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'position')->textInput() ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+    <?php
+        echo $form->field($model, 'description')->widget(CKEditor::className(), [
+        'kcfinder' => true,
+    ]);
+    ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 

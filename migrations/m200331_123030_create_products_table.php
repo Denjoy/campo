@@ -18,7 +18,7 @@ class m200331_123030_create_products_table extends Migration
             'title'=>$this->string(),
             'position'=>$this->integer(),
             'image'=>$this->string(),
-            'description'=>$this->string(),
+            'description'=>$this->text(),
             'price'=>$this->integer(),
             'discount'=>$this->integer(),
             'percentage'=>$this->integer(),

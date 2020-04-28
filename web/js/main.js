@@ -12,20 +12,7 @@ $( document ).ready(function() {
         autoplaySpeed: 5000,
         adaptiveHeight: true
     });
-    $('.product-slider-left-side').slick({
-        dots: false,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        arrows: false,
-        // nextArrow: '<i class="far fa-arrow-right"></i>',
-        // prevArrow: '<i class="far fa-arrow-left"></i>',
-        cssEase: 'linear',
-        autoplay: true,
-        autoplaySpeed: 5000,
-        adaptiveHeight: true
-    });
-    $('.product-slider-right-side').slick({
+    $('.product-slider').slick({
         dots: false,
         infinite: true,
         speed: 500,
@@ -98,3 +85,4 @@ $( document ).ready(function() {
         offset: '100%'
     });
 });
+

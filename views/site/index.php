@@ -33,19 +33,25 @@ $this->title = 'Fireplace';
     <h1>Products</h1>
     <div class="container">
         <div class="left-slider">
-            <div class="product-slider-left-side">
+            <div class="product-slider">
                 <?php foreach ($productsF as $product) {?>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="product-image"><img src="<?= $product->getImage()?>"></div>
+                                <div class="image-price">
+                                    <div class="product-image">
+                                        <img src="<?= $product->getImage()?>">
+                                    </div>
+                                    <div class="price">
+                                        <span><?= $product->price?> ₴</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="title"><h2>SomeTitleName</h2></div>
+                                <div class="title"><h2><?= $product->title?></h2></div>
                                 <div class="description">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci alias
-                                            animi aspernatur at blanditiis consequatur eaque error laborum maiores nemo, nobis nulla
-                                            omnis, perferendis quia quibusdam, tempore vero?</p>
+                                    <p><?= $product->description ?></p>
+                                    <button>BUY</button>
                                 </div>
                             </div>
                         </div>
@@ -54,20 +60,27 @@ $this->title = 'Fireplace';
             </div>
         </div>
         <div class="right-slider">
-            <div class="product-slider-right-side">
+            <div class="product-slider">
                 <?php foreach ($productsC as $product) {?>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="title"><h2>SomeTitleName</h2></div>
+                                <div class="title"><h2><?= $product->title?></h2></div>
                                 <div class="description">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci alias
-                                        animi aspernatur at blanditiis consequatur eaque error laborum maiores nemo, nobis nulla
-                                        omnis, perferendis quia quibusdam, tempore vero?</p>
+                                    <p><?= $product->description ?></p>
+                                    <button>BUY</button>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="product-image"><img src="<?= $product->getImage()?>"></div></div>
+                                <div class="image-price">
+                                    <div class="price">
+                                        <span><?= $product->price?> ₴</span>
+                                    </div>
+                                    <div class="product-image">
+                                        <img src="<?= $product->getImage()?>">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php }?>
