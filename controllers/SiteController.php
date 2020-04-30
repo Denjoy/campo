@@ -65,7 +65,6 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public $enableCsrfValidation = false;
     public function actionIndex()
     {
         $productsF= Products::getProductsByCategory(1);
