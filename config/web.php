@@ -12,6 +12,16 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'container' => [
+        'definitions' => [
+            'dosamigos\ckeditor\CKEditor' => [
+                'preset' => 'full',
+                'clientOptions' => [
+                    'filebrowserImageUploadUrl' => '/files/upload'
+                ]
+            ]
+        ],
+    ],
     'language' => 'en',
     'sourceLanguage' => 'en',
     'components' => [
@@ -19,6 +29,14 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'c-LfEDOUMi2SQaBAlpZx5w308yoFZ7qw',
         ],
+        'opengraph' => [
+            'class' => 'fgh151\opengraph\OpenGraph',
+        ],
+        'telegram' => [
+            'class' => 'aki\telegram\Telegram',
+            'botToken' => '1281253643:AAHOopfq99o6A7SRaLjqUhgrQJeAXnnmvaM',
+        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

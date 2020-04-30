@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Categories;
+use dosamigos\ckeditor\CKEditor;
 use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;

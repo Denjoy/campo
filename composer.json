@@ -21,7 +21,11 @@
         "abcms/yii2-multilanguage": "^0.4.0",
         "abcms/yii2-library": "^0.4.0",
         "kartik-v/yii2-widget-fileinput": "@dev",
-        "blackbes/yii2-ckeditor-kcfinder-widget" : "1.9.1"
+        "blackbes/yii2-ckeditor-kcfinder-widget" : "1.9.1",
+        "sunhater/kcfinder": "*",
+        "aki/yii2-bot-telegram": "*",
+        "borales/yii2-phone-input": "*",
+        "fgh151/yii2-opengraph": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

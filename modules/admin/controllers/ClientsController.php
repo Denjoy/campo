@@ -2,20 +2,17 @@
 
 namespace app\modules\admin\controllers;
 
-use abcms\multilanguage\behaviors\ModelBehavior;
-use abcms\multilanguage\Multilanguage;
-use app\models\Clients;
 use Yii;
-use app\models\Settings;
-use app\models\search\SettingsSearch;
+use app\models\Clients;
+use app\models\search\ClientsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SettingsController implements the CRUD actions for Settings model.
+ * ClientsController implements the CRUD actions for Clients model.
  */
-class SettingsController extends Controller
+class ClientsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,12 +30,12 @@ class SettingsController extends Controller
     }
 
     /**
-     * Lists all Settings models.
+     * Lists all Clients models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SettingsSearch();
+        $searchModel = new ClientsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +45,7 @@ class SettingsController extends Controller
     }
 
     /**
-     * Displays a single Settings model.
+     * Displays a single Clients model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +58,13 @@ class SettingsController extends Controller
     }
 
     /**
-     * Creates a new Settings model.
+     * Creates a new Clients model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Settings();
+        $model = new Clients();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -79,7 +76,7 @@ class SettingsController extends Controller
     }
 
     /**
-     * Updates an existing Settings model.
+     * Updates an existing Clients model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -99,7 +96,7 @@ class SettingsController extends Controller
     }
 
     /**
-     * Deletes an existing Settings model.
+     * Deletes an existing Clients model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -113,15 +110,15 @@ class SettingsController extends Controller
     }
 
     /**
-     * Finds the Settings model based on its primary key value.
+     * Finds the Clients model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Settings the loaded model
+     * @return Clients the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Settings::findOne($id)) !== null) {
+        if (($model = Clients::findOne($id)) !== null) {
             return $model;
         }
 

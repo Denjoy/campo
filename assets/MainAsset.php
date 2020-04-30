@@ -32,7 +32,8 @@ class MainAsset extends AssetBundle
         'js/jquery.waypoints.min.js',
         'js/scroll-top.js',
         'js/slick.min.js',
-        'js/main.js'
+        'js/main.js',
+        'js/main-test.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

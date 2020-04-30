@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Banners;
 use app\models\Categories;
+use app\models\Clients;
 use app\models\Products;
 use app\models\Settings;
 use Yii;
@@ -64,6 +65,7 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public $enableCsrfValidation = false;
     public function actionIndex()
     {
         $productsF= Products::getProductsByCategory(1);
@@ -71,14 +73,17 @@ class SiteController extends Controller
         $settings = Settings::getSettings();
         $products = Products::getProducts();
         $banners = Banners::getBanners();
+        $contact_model = new Clients();
         $categories = Categories::getCategory();
+
         return $this->render('index',[
             'settings'=>$settings,
-            'products'=>$products,
             'banners'=>$banners,
             'categories'=>$categories,
             'productsF'=>$productsF,
             'productsC'=>$productsC,
+            'products'=>$products,
+            'contact_model'=>$contact_model,
         ]);
     }
 
@@ -142,5 +147,31 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionBot() {
+        $phone = Yii::$app->request->post('Clients')['phone'];
+        $name = Yii::$app->request->post('Clients')['name'];
+        $surname = Yii::$app->request->post('Clients')['surname'];
+        $address = Yii::$app->request->post('Clients')['address'];
+        $location = Yii::$app->request->post('Clients')['location'];
+        $region = Yii::$app->request->post('Clients')['region'];
+        $post = Yii::$app->request->post('Clients')['post'];
+        $email = Yii::$app->request->post('Clients')['email'];
+        if(Yii::$app->request->isPost) {
+            $test_chat = '-448380030';
+            $prod_chat = '-448380030';
+            if (!empty($phone)) {
+
+                $result = Yii::$app->telegram->sendMessage([
+                    'chat_id' => $prod_chat,
+                    'text'    => 'Новий запит на зворотній дзвінок. Імя: '.$name.'Surname'.$surname.'Address' .$address. 'Location' .$location. 'Post Index' .$post. 'Номер: '.$phone. 'Email' .$email
+                ]);
+
+                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
+                Clients::create($name,$surname,$address,$location,$region,$post,$phone,$email);
+
+                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+            }
+        }
     }
 }

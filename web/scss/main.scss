@@ -32,12 +32,7 @@ h2{
 	color: #000;
 }
 p{
-
-}
-button{
-	background: #E05555;
-	border: none;
-	padding: 5px 30px;
+	word-wrap: break-word;
 }
 body{
 	font-family: 'Poppins', sans-serif;
@@ -83,6 +78,13 @@ header{
 			padding: 10px;
 		}
 	}
+	a{
+		background: #E05555;
+		border: none;
+		padding: 5px 30px;
+		float: left;
+		margin: 20px auto auto 35%;
+	}
 	.product-image{
 		img{
 			width: 350px;
@@ -103,10 +105,6 @@ header{
 		.price{
 			margin: auto auto -6px -37px;
 		}
-		button{
-			float: left;
-			margin: 20px auto auto 35%;
-		}
 	}
 	.right-slider{
 		.product-slider{
@@ -116,10 +114,6 @@ header{
 		.price{
 			z-index: 1;
 			margin: 220px -30px auto auto;
-		}
-		button{
-			float: left;
-			margin: 20px auto auto 40%;
 		}
 		.product-image{
 			img{
@@ -173,6 +167,11 @@ header{
 	}
 	.right-side{
 		padding-left: 10%;
+	}
+	a{
+		background: #E05555;
+		border: none;
+		padding: 5px 30px;
 	}
 	//.description{
 	//	margin-left:10%;
