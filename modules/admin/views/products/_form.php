@@ -45,9 +45,15 @@ use yii\widgets\ActiveForm;
     <?= \abcms\multilanguage\widgets\TranslationForm::widget(['model' => $model]) ?>
 
     <?php
+        echo $form->field($model, 'description_rus')->widget(CKEditor::className(), [
+        'kcfinder' => true,
+    ]);
+
+    ?>
+    <?php
     echo $form->field($model, 'image')->widget(FileInput::classname(), [
-        'name' => 'input-uk',
-        'language' => 'uk',
+        'name' => 'input-'.(Yii::$app->language == 'ua') ? 'uk' : Yii::$app->language,
+        'language' => (Yii::$app->language == 'ua') ? 'uk' : Yii::$app->language,
         'options' => ['accept' => 'image/*'],
         'pluginOptions'=>[
             'initialPreview'=>[

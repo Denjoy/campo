@@ -54,7 +54,15 @@ $this->title = 'Fireplace';
                             <div class="col-md-6">
                                 <div class="title"><h2 class="product-title"><?= $product->title?></h2></div>
                                 <div class="description">
-                                    <p><?= $product->description ?></p>
+                                    <p>
+                                        <?php
+                                        if(Yii::$app->language == 'ua') {
+                                            echo substr(strip_tags($product->description), '0', '300').'...';
+                                        } elseif(Yii::$app->language == 'ru') {
+                                            echo substr(strip_tags($product->description_rus), '0', '300').'...';
+                                        }
+                                        ?>
+                                    </p>
                                 </div>
                                 <div class="buy-btn" type="button" product_title="<?= $product->title?>">
                                     <a href="#contact-us">
@@ -75,7 +83,15 @@ $this->title = 'Fireplace';
                             <div class="col-md-6">
                                 <div class="title"><h2><?= $product->title?></h2></div>
                                 <div class="description">
-                                    <p><?= $product->description ?></p>
+                                    <p>
+                                        <?php
+                                        if(Yii::$app->language == 'ua') {
+                                            echo substr(strip_tags($product->description), '0', '300').'...';
+                                        } elseif(Yii::$app->language == 'ru') {
+                                            echo substr(strip_tags($product->description_rus), '0', '300').'...';
+                                        }
+                                        ?>
+                                    </p>
                                 </div>
                                 <div  class="buy-btn" type="button" product_title="<?= $product->title?>">
                                     <a href="#contact-us">

@@ -24,6 +24,7 @@ use app\models\Categories;
  * @property int $is_delete
  * @property string|null $created_at
  * @property string|null $updated_at
+ ** @property string|null $description_rus
  *
  * @property Categories $categories
  */
@@ -43,7 +44,6 @@ class Products extends \yii\db\ActiveRecord
                 'class' => \abcms\multilanguage\behaviors\ModelBehavior::className(),
                 'attributes' => [
                     'title',
-                    'description:text-area',
                 ],
             ]
         ];
@@ -58,7 +58,7 @@ class Products extends \yii\db\ActiveRecord
             [['position', 'price', 'discount', 'percentage', 'category_id', 'is_delete'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'],'string','max'=>255],
-            [['description'],'string'],
+            [['description', 'description_rus'],'string'],
             [['image'], 'file', 'extensions' => 'jpg,JPG,jpeg,JPEG,png,PNG', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
@@ -75,6 +75,7 @@ class Products extends \yii\db\ActiveRecord
             'position' => 'Position',
             'image' => 'Image',
             'description' => 'Description',
+            'description_rus' => 'Description Rus',
             'price' => 'Price',
             'discount' => 'Discount',
             'percentage' => 'Percentage',
