@@ -174,11 +174,15 @@ class Products extends \yii\db\ActiveRecord
     }
     public function getProductsByCategory($catid)
     {
-        return Products::find()
+        $settings = Products::find()
             ->where('category_id=:category_id', ['category_id'=>$catid])
             ->andWhere(['is_delete' => '0'])
             ->orderBy('created_at '.'asc')
             ->all();
+
+        $translatedModels = Multilanguage::translateMultiple($settings);
+
+        return $translatedModels;
     }
     public function getProductsByCategoryAsArray($catid)
     {
@@ -188,13 +192,19 @@ class Products extends \yii\db\ActiveRecord
             ->orderBy('created_at '.'asc')
             ->all();
 
-        return $data;
+        $translatedModels = Multilanguage::translateMultiple($data);
+
+        return $translatedModels;
     }
     public static function getRecent($orderBy)
     {
-        return Products::find()
+        $settings = Products::find()
             ->andWhere(['is_delete' => '0'])
             ->orderBy('created_at '.$orderBy)
             ->all();
+
+        $translatedModels = Multilanguage::translateMultiple($settings);
+
+        return $translatedModels;
     }
 }

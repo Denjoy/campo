@@ -5,7 +5,6 @@ return [
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
     'languages'=>   [
-        'en'    =>  'English',
         'ua'    =>  'Ukraine',
         'ru'    =>  'Russian',
     ],
