@@ -35,10 +35,10 @@ MainAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <header>
-    <div class="logo"><img src="images/logo/logo.png"></div>
+    <div class="logo"><img src="/images/logo/logo.png"></div>
     <nav>
         <div class="nav" id="Nav">
-            <a href="#welcome">Hello</a>
+            <a href="#welcome"><?= \app\models\Settings::getSettings()['home']?></a>
             <a href="#products">Products</a>
             <a href="#about-us">About Us</a>
             <a href="#contact-us">Contact</a>
