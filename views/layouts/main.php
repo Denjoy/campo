@@ -15,9 +15,9 @@ use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\MainAsset;
 
+/* @var $settings \app\models\Settings*/
 /* @var $banners \app\models\Banners*/
 /* @var $products \app\models\Products*/
-/* @var $productsC  \app\models\Products*/
 
 MainAsset::register($this);
 ?>
@@ -39,9 +39,9 @@ MainAsset::register($this);
     <nav>
         <div class="nav" id="Nav">
             <a href="#welcome"><?= \app\models\Settings::getSettings()['home']?></a>
-            <a href="#products">Products</a>
-            <a href="#about-us">About Us</a>
-            <a href="#contact-us">Contact</a>
+            <a href="#products"><?= \app\models\Settings::getSettings()['products']?></a>
+            <a href="#about-us"><?= \app\models\Settings::getSettings()['about-us']?></a>
+            <a href="#contact-us"><?= \app\models\Settings::getSettings()['contacts']?></a>
             <a class="<?= (Yii::$app->language == 'ua') ? 'active' : ''; ?>" href="<?= Url::current(['lang' => 'ua']) ?>">Ua</a>
             <a class="<?= (Yii::$app->language == 'ru') ? 'active' : ''; ?>" href="<?= Url::current(['lang' => 'ru']) ?>">Ru</a>
         </div>

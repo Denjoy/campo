@@ -49,6 +49,9 @@ header {
       color: #E05555;
       margin-left: 30px;
       margin-right: 20px; }
+    header .nav a:hover {
+      color: #cdcdcd;
+      text-decoration: none; }
 
 .banners-img-element img {
   width: 100%;
@@ -68,7 +71,12 @@ header {
     border: none;
     padding: 5px 30px;
     float: left;
-    margin: 20px auto auto 35%; }
+    margin: 20px auto auto 35%;
+    color: white;
+    text-decoration: none; }
+  .products a:hover {
+    background-color: #cdcdcd;
+    color: #E05555; }
   .products .product-image img {
     width: 350px;
     height: auto;
@@ -113,22 +121,45 @@ header {
     margin: 15px 0 10px; }
   .order-now .row {
     margin-bottom: 25px; }
+  .order-now .order-now input[type="text"] {
+    width: 400px; }
+  .order-now .contact-form-input {
+    margin-left: 100px;
+    margin-right: 150px; }
+    .order-now .contact-form-input .form-control {
+      width: 300px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8; }
+    .order-now .contact-form-input .form-control:focus {
+      background-color: #f26c4f; }
   .order-now input[type=text] {
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-    background-color: #f8f8f8; }
+    background-color: #f8f8f8;
+    width: 300px; }
   .order-now input[type=text]:focus {
     background-color: #f26c4f; }
   .order-now .send {
     text-align: center; }
   .order-now .right-side {
     padding-left: 10%; }
-  .order-now a {
+  .order-now .product-info {
+    text-align: right;
+    margin-left: 5px; }
+  .order-now .order-data span {
+    color: #E05555; }
+  .order-now button {
     background: #E05555;
     border: none;
-    padding: 5px 30px; }
+    padding: 5px 30px;
+    margin-left: 19%; }
+  .order-now button:hover {
+    background-color: #cdcdcd;
+    color: #E05555; }
 
 .contact-us {
   display: flex;

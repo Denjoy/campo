@@ -42,6 +42,9 @@ class Clients extends \yii\db\ActiveRecord
             [['is_delete'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'surname', 'address', 'location', 'region', 'post', 'phone', 'email'], 'string', 'max' => 255],
+            [['name', 'surname', 'address', 'location', 'region', 'post', 'phone'], 'required','message'=>'Insert Data'],
+            ['email','email'],
+
         ];
     }
 
@@ -77,6 +80,24 @@ class Clients extends \yii\db\ActiveRecord
             $model->post = $post_;
             $model->phone = $phone_;
             $model->email = $email_;
+
+            $model->save(false);
+        }
+        catch (\Exception $e){
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function createNonEmail($name_,$surname_,$address_,$location_,$region_,$post_,$phone_){
+        try {
+            $model = new Clients();
+
+            $model->name = $name_;
+            $model->surname = $surname_;
+            $model->address = $address_;
+            $model->location = $location_;
+            $model->region = $region_;
+            $model->post = $post_;
+            $model->phone = $phone_;
 
             $model->save(false);
         }

@@ -160,15 +160,24 @@ class SiteController extends Controller
         if(Yii::$app->request->isPost) {
             $test_chat = '-448380030';
             $prod_chat = '-448380030';
-            if (!empty($phone)) {
-
+            if (!empty($name) && !empty($surname) && !empty($phone) && !empty($address) && !empty($location) && !empty($region) && !empty($post) && !empty($email)) {
                 $result = Yii::$app->telegram->sendMessage([
                     'chat_id' => $prod_chat,
-                    'text'    => 'Новий запит на зворотній дзвінок. Імя: '.$name.'Surname'.$surname.'Address' .$address. 'Location' .$location. 'Post Index' .$post. 'Номер: '.$phone. 'Email' .$email
+                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
                 ]);
 
                 Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
                 Clients::create($name,$surname,$address,$location,$region,$post,$phone,$email);
+
+                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+            }elseif(empty($email)){
+                $result = Yii::$app->telegram->sendMessage([
+                    'chat_id' => $prod_chat,
+                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone
+                ]);
+
+                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
+                Clients::createNonEmail($name,$surname,$address,$location,$region,$post,$phone);
 
                 return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
             }
