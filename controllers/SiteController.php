@@ -156,6 +156,7 @@ class SiteController extends Controller
         $region = Yii::$app->request->post('Clients')['region'];
         $post = Yii::$app->request->post('Clients')['post'];
         $email = Yii::$app->request->post('Clients')['email'];
+
         if(Yii::$app->request->isPost) {
             $test_chat = '-448380030';
             $prod_chat = '-448380030';

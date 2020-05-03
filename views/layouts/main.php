@@ -9,6 +9,7 @@ use SebastianBergmann\CodeCoverage\Report\PHP;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
@@ -41,6 +42,8 @@ MainAsset::register($this);
             <a href="#products">Products</a>
             <a href="#about-us">About Us</a>
             <a href="#contact-us">Contact</a>
+            <a class="<?= (Yii::$app->language == 'ua') ? 'active' : ''; ?>" href="<?= Url::current(['lang' => 'ua']) ?>">Ua</a>
+            <a class="<?= (Yii::$app->language == 'ru') ? 'active' : ''; ?>" href="<?= Url::current(['lang' => 'ru']) ?>">Ru</a>
         </div>
     </nav>
 </header>
