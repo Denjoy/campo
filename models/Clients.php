@@ -79,7 +79,7 @@ class Clients extends \yii\db\ActiveRecord
             $model->region = $region_;
             $model->post = $post_;
             $model->phone = $phone_;
-            $model->email = $email_;
+            $model->email = (empty($email_))? $email_ : 'email not set';
 
             $model->save(false);
         }

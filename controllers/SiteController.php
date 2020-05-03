@@ -160,26 +160,19 @@ class SiteController extends Controller
         if(Yii::$app->request->isPost) {
             $test_chat = '-448380030';
             $prod_chat = '-448380030';
-            if (!empty($name) && !empty($surname) && !empty($phone) && !empty($address) && !empty($location) && !empty($region) && !empty($post) && !empty($email)) {
-                $result = Yii::$app->telegram->sendMessage([
-                    'chat_id' => $prod_chat,
-                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
-                ]);
+            if (!empty($name) && !empty($surname) && !empty($phone) && !empty($address) && !empty($location) && !empty($region) && !empty($post)) {
+                if(!empty($email)){
+                    $result = Yii::$app->telegram->sendMessage([
+                        'chat_id' => $prod_chat,
+                        'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
+                    ]);
 
-                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
-                Clients::create($name,$surname,$address,$location,$region,$post,$phone,$email);
+                    Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
+                    Clients::create($name,$surname,$address,$location,$region,$post,$phone,$email);
 
-                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
-            }elseif(empty($email)){
-                $result = Yii::$app->telegram->sendMessage([
-                    'chat_id' => $prod_chat,
-                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone
-                ]);
+                    return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
 
-                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
-                Clients::createNonEmail($name,$surname,$address,$location,$region,$post,$phone);
-
-                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+                }
             }
         }
     }
