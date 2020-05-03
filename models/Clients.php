@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use borales\extensions\phoneInput\PhoneInputValidator;
 use http\Client;
 use Yii;
 use yii\db\Exception;
@@ -42,7 +43,8 @@ class Clients extends \yii\db\ActiveRecord
             [['is_delete'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'surname', 'address', 'location', 'region', 'post', 'phone', 'email'], 'string', 'max' => 255],
-            [['name', 'surname', 'address', 'location', 'region', 'post', 'phone'], 'required','message'=>'Insert Data'],
+            [['name', 'surname', 'address', 'location', 'region', 'post', 'phone'], 'required','message'=>'{attribute} is required.'],
+            [['phone'], PhoneInputValidator::className(), 'region' => 'UA'],
             ['email','email'],
 
         ];
@@ -81,7 +83,7 @@ class Clients extends \yii\db\ActiveRecord
             $model->phone = $phone_;
             $model->email = $email_;
 
-            $model->save(false);
+            $model->save();
         }
         catch (\Exception $e){
             throw new Exception($e->getMessage());

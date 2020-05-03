@@ -149,7 +149,11 @@ $this->title = 'Fireplace';
         <h1><?= $settings['order-now']?></h1>
     </div>
     <div class="order-data">
-        <?php $form = ActiveForm::begin(['action' => ['/site/bot'], 'options' => ['class' => 'contact-form', 'id' => "call-form"]]); ?>
+        <?php $form = ActiveForm::begin(['options' => [
+            'class' => 'contact-form',
+            'id' => "call-form",
+            'enableAjaxValidation' => true,
+        ]]); ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -177,11 +181,11 @@ $this->title = 'Fireplace';
                 </div>
             </div>
         </div>
-        <div class="apply">
-            <button type="submit" class="contact-form want-design" name="contact-button">Відправити</button>
-            <span class="form-aftersent"><?= $settings['apply-message']?></span>
-        </div>
     <?php ActiveForm::end(); ?>
+        <div class="apply">
+            <button type="submit" class="contact-form want-design send-form" name="contact-button">Відправити</button>
+            <span class="form-aftersent" style="display: none; "></span>
+        </div>
     </div>
 </section>
 <div class="contact-us" id="contact-us">

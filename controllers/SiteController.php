@@ -148,39 +148,37 @@ class SiteController extends Controller
         return $this->render('about');
     }
     public function actionBot() {
-        $phone = Yii::$app->request->post('Clients')['phone'];
-        $name = Yii::$app->request->post('Clients')['name'];
-        $surname = Yii::$app->request->post('Clients')['surname'];
-        $address = Yii::$app->request->post('Clients')['address'];
-        $location = Yii::$app->request->post('Clients')['location'];
-        $region = Yii::$app->request->post('Clients')['region'];
-        $post = Yii::$app->request->post('Clients')['post'];
-        $email = Yii::$app->request->post('Clients')['email'];
 
-        if(Yii::$app->request->isPost) {
+        $request = Yii::$app->request;
+
+        //is this an ajax request?
+        if ($request->isAjax) {
+
+            //what data we need to get from ajax on request
+            $phone = $request->post('phone');
+            $name = $request->post('name');
+            $surname = $request->post('surname');
+            $address = $request->post('address');
+            $location = $request->post('location');
+            $region = $request->post('region');
+            $post = $request->post('post');
+            $email = $request->post('email');
+
             $test_chat = '-448380030';
             $prod_chat = '-448380030';
-            if (!empty($name) && !empty($surname) && !empty($phone) && !empty($address) && !empty($location) && !empty($region) && !empty($post) && !empty($email)) {
-                $result = Yii::$app->telegram->sendMessage([
-                    'chat_id' => $prod_chat,
-                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
-                ]);
 
-                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
-                Clients::create($name,$surname,$address,$location,$region,$post,$phone,$email);
+            $result = Yii::$app->telegram->sendMessage([
+                'chat_id' => $prod_chat,
+                'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
+            ]);
 
-                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
-            }elseif(empty($email)){
-                $result = Yii::$app->telegram->sendMessage([
-                    'chat_id' => $prod_chat,
-                    'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone
-                ]);
+            Clients::create($name, $surname, $address, $location, $region, $post, $phone, $email);
 
-                Yii::$app->session->setFlash('success', 'Запит прийнято. Вам зателефонують найближчим часом.');
-                Clients::createNonEmail($name,$surname,$address,$location,$region,$post,$phone);
-
-                return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
-            }
+        }
+        else
+        {
+            Yii::$app->response->statusCode = 400;
+            return 'Error! Request must be Ajax';
         }
     }
 }
