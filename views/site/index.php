@@ -41,7 +41,7 @@ $this->title = 'Fireplace';
                 <?php foreach ($productsF as $product) {?>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
                                 <div class="image-price">
                                     <div class="product-image">
                                         <img src="<?= $product->getImage()?>">
@@ -51,7 +51,7 @@ $this->title = 'Fireplace';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
                                 <div class="title"><h2 class="product-title"><?= $product->title?></h2></div>
                                 <div class="description">
                                     <p>
@@ -80,7 +80,7 @@ $this->title = 'Fireplace';
                 <?php foreach ($productsC as $product) {?>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
                                 <div class="title"><h2><?= $product->title?></h2></div>
                                 <div class="description">
                                     <p>
@@ -99,7 +99,7 @@ $this->title = 'Fireplace';
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
                                 <div class="image-price">
                                     <div class="price">
                                         <span><?= $product->price?> ₴</span>
@@ -156,13 +156,13 @@ $this->title = 'Fireplace';
         ]]); ?>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
                     <?= $form->field($contact_model, 'name', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['name']])->label($settings['name'] . "<span> * </span>"); ?>
                     <?= $form->field($contact_model, 'surname', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['surname']])->label($settings['surname'] . "<span> * </span>"); ?>
                     <?= $form->field($contact_model, 'address', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['address']])->label($settings['address'] . "<span> * </span>"); ?>
                     <?= $form->field($contact_model, 'location', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['location']])->label($settings['location'] . "<span> * </span>");?>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
                     <?= $form->field($contact_model, 'region', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['region']])->label($settings['region'] . "<span> * </span>"); ?>
                     <?= $form->field($contact_model, 'post', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['phone']])->label($settings['post'] . "<span> * </span>"); ?>
                     <?= $form->field($contact_model, 'phone', ['options' => ['class' => 'contact-form-input aa']])->widget(PhoneInput::className(), [
@@ -173,16 +173,16 @@ $this->title = 'Fireplace';
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 product-info">
+                <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 product-info">
                     <p><?= $settings['products']?> :</p>
                 </div>
-                <div class="col-md-9">
+                <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
                     <p href="" class="buy-product"><?= $settings['choose-product']?></p>
                 </div>
             </div>
         </div>
     <?php ActiveForm::end(); ?>
-        <div class="apply">
+        <div class="send-btn">
             <button type="submit" class="contact-form want-design send-form" name="contact-button">Відправити</button>
             <span class="form-aftersent" style="display: none; "></span>
         </div>

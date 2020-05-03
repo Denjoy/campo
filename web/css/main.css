@@ -119,11 +119,13 @@ header {
     color: white; }
   .order-now p {
     margin: 15px 0 10px; }
+  .order-now .row {
+    margin-bottom: 25px; }
   .order-now .order-now input[type="text"] {
     width: 400px; }
   .order-now .contact-form-input {
-    margin-left: 100px;
-    margin-right: 150px; }
+    margin-left: 20%;
+    margin-right: 20%; }
     .order-now .contact-form-input .form-control {
       width: 300px;
       box-sizing: border-box;
@@ -146,8 +148,7 @@ header {
   .order-now .right-side {
     padding-left: 10%; }
   .order-now .product-info {
-    text-align: right;
-    margin-left: 5px; }
+    padding-left: 10.5%; }
   .order-now .order-data span {
     color: #E05555; }
   .order-now button {
@@ -157,6 +158,8 @@ header {
   .order-now button:hover {
     background-color: #cdcdcd;
     color: #E05555; }
+  .order-now .send-btn {
+    margin: 0 10.5%; }
 
 .contact-us {
   display: flex;
@@ -195,3 +198,21 @@ header {
 .form-aftersent {
   margin-top: 10px;
 }
+@media only screen and (max-width: 1024px) {
+  .about-us p {
+    margin: 0 12.5%; } }
+@media only screen and (max-width: 768px) {
+  .image-price .product-image img {
+    width: 220px;
+    height: 220px; }
+
+  .products .right-sider .price {
+    margin: 190px -30px auto auto; }
+
+  .col-md-12 {
+    margin: 0 15%; }
+
+  .order-now .product-info {
+    margin-left: 20%; }
+  .order-now .buy-product {
+    margin-left: 20%; } }
