@@ -83,24 +83,6 @@ class Clients extends \yii\db\ActiveRecord
             $model->phone = $phone_;
             $model->email = (empty($email_))? $email_ : 'email not set';
 
-            $model->save();
-        }
-        catch (\Exception $e){
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function createNonEmail($name_,$surname_,$address_,$location_,$region_,$post_,$phone_){
-        try {
-            $model = new Clients();
-
-            $model->name = $name_;
-            $model->surname = $surname_;
-            $model->address = $address_;
-            $model->location = $location_;
-            $model->region = $region_;
-            $model->post = $post_;
-            $model->phone = $phone_;
-
             $model->save(false);
         }
         catch (\Exception $e){
