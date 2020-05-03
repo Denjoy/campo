@@ -11,7 +11,8 @@ use yii\widgets\ActiveForm;
 <div class="settings-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <h2>English Translation</h2>
+
+    <h2>Ukrainian Translation</h2>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
