@@ -35,7 +35,7 @@ MainAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <header>
-    <div class="logo"><img src="/images/logo/logo.png"></div>
+    <div class="logo"><img src="/images/logo/logo_2.png"></div>
     <nav>
         <div class="nav" id="Nav">
             <a href="#welcome"><?= \app\models\Settings::getSettings()['home']?></a>
@@ -53,7 +53,6 @@ MainAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Fireplace <?= date('Y') ?></p>
-        <span>+380502380308</span>
         <p class="pull-right">Developed by Denjoy</p>
 <!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
     </div>

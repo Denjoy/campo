@@ -84,5 +84,19 @@ $( document ).ready(function() {
     }, {
         offset: '100%'
     });
+    $(document).on("click", ".show-btn-top", function() {
+        if($("#show-btn").hasClass("not-clicked")){
+            $(".title-top").hide();
+            $(".description-top").hide();
+            $(".image-price-hide").show();
+            $("#show-btn").removeClass("not-clicked");
+            $("#show-btn").addClass("clicked");
+        }else{
+            $(".title-top").show();
+            $(".description-top").show();
+            $(".image-price-hide").hide();
+            $("#show-btn").removeClass("clicked");
+            $("#show-btn").addClass("not-clicked");
+        }
+    })
 });
-

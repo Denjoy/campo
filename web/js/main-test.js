@@ -24,9 +24,10 @@ $(document).ready(function () {
       let post = $("#clients-post").val();
       let email = $("#clients-email").val();
 
+
       email = (email!=='') ? email : 'email not provided';
 
-      if(phone==='' || name==='' || surname==='' || address===''  || location===''  || region===''  || post==='')
+      if(phone==='' || name==='' || surname==='' || address===''  || location===''  || region===''  || post==='' || product_title==='')
       {
           return false;
       }
@@ -44,6 +45,7 @@ $(document).ready(function () {
              region: region,
              post: post,
              email: email,
+             product: product_title,
          },
       }).done(function (data) {
           $("#clients-phone").val('');
@@ -54,6 +56,7 @@ $(document).ready(function () {
           $("#clients-region").val('');
           $("#clients-post").val('');
           $("#clients-email").val('');
+          $("#clients-product").val('');
 
           let response = (locale === 'ru') ? 'Ваш запрос принят. Вам перезвонят в ближайшее время' : 'Запит прийнято. Вам зателефонують найближчим часом.';
           $(".form-aftersent").text(response);

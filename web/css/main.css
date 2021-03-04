@@ -33,9 +33,9 @@ body {
 
 header {
   z-index: 1;
-  position: relative;
+  position: absolute;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   margin-bottom: -170px; }
   header .logo {
     padding: 10px;
@@ -46,6 +46,7 @@ header {
     padding: 20px;
     text-align: center; }
     header .nav a {
+      font-size: 18px;
       color: #E05555;
       margin-left: 30px;
       margin-right: 20px; }
@@ -66,6 +67,17 @@ header {
       background-color: #E05555;
       border-radius: 50px;
       padding: 10px; }
+  .products .image-price-hide {
+    display: none;
+    position: absolute;
+    z-index: -1; }
+  .products .buttons {
+    display: flex;
+    z-index: 1; }
+    .products .buttons .show-btn-top {
+      margin: 0 28px; }
+    .products .buttons .buy-btn {
+      margin: 0 28px; }
   .products a {
     background: #E05555;
     border: none;
@@ -117,8 +129,12 @@ header {
   color: white; }
   .order-now h1 {
     color: white; }
-  .order-now p {
-    margin: 15px 0 10px; }
+  .order-now a {
+    margin: 15px 0 10px;
+    text-decoration: none;
+    color: #E05555; }
+  .order-now a:hover {
+    color: white; }
   .order-now .row {
     margin-bottom: 25px; }
   .order-now .order-now input[type="text"] {
@@ -154,15 +170,11 @@ header {
   .order-now button {
     background: #E05555;
     border: none;
-    padding: 5px 30px; }
+    padding: 5px 30px;
+    margin-bottom: 20px; }
   .order-now button:hover {
     background-color: #cdcdcd;
     color: #E05555; }
-  .order-now .send-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
 
 .contact-us {
   display: flex;
@@ -172,7 +184,7 @@ header {
   .contact-us h2 {
     color: #E05555; }
   .contact-us .contact {
-    margin: 25px 0 0 13%;
+    margin-top: 28px;
     display: flex; }
     .contact-us .contact p {
       margin-right: 30px; }
@@ -184,20 +196,18 @@ header {
   .footer span {
     margin-left: 35%; }
 
-.order-now .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-aftersent {
-  margin-top: 10px;
-}
+@media only screen and (max-width: 1440px) {
+  .banners-img-element img {
+    max-height: 800px; } }
 @media only screen and (max-width: 1024px) {
   .about-us p {
     margin: 0 12.5%; } }
 @media only screen and (max-width: 768px) {
+  header .logo img {
+    width: 150px; }
+  header .nav a {
+    font-size: 14px; }
+
   .image-price .product-image img {
     width: 220px;
     height: 220px; }
@@ -205,10 +215,26 @@ header {
   .products .right-sider .price {
     margin: 190px -30px auto auto; }
 
-  .col-md-12 {
-    margin: 0 15%; }
-
   .order-now .product-info {
     margin-left: 20%; }
   .order-now .buy-product {
-    margin-left: 20%; } }
+    margin-left: 20%; }
+  .order-now .col-sm-6 {
+    width: 45%; } }
+@media only screen and (max-width: 568px) {
+  .product-image-price {
+    display: none; }
+
+  .order-now .col-xs-12 {
+    width: 70%; }
+  .order-now .product-info {
+    margin-left: 0;
+    padding-left: 17%; }
+
+  .contact-us .contact {
+    margin-top: 10px; }
+
+  .slick-slider {
+    height: 300px; }
+    .slick-slider .slick-track {
+      height: 255px; } }

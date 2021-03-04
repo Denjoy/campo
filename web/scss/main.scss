@@ -41,9 +41,9 @@ body{
 }
 header{
 	z-index: 1;
-	position: relative;
+	position: absolute;
 	width: 100%;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.75);
 	margin-bottom:-170px;
 	.logo{
 		padding: 10px;
@@ -56,6 +56,7 @@ header{
 		padding: 20px;
 		text-align: center;
 		a{
+			font-size: 18px;
 			color: #E05555;
 			margin-left: 30px;
 			margin-right: 20px;
@@ -81,6 +82,21 @@ header{
 			background-color: #E05555;
 			border-radius: 50px;
 			padding: 10px;
+		}
+	}
+	.image-price-hide{
+		display: none;
+		position: absolute;
+		z-index: -1;
+	}
+	.buttons{
+		display: flex;
+		z-index: 1;
+		.show-btn-top{
+			margin: 0 28px;
+		}
+		.buy-btn{
+			margin: 0 28px;
 		}
 	}
 	a{
@@ -156,8 +172,13 @@ header{
 	h1{
 		color:white;
 	}
-	p{
+	a{
 		margin:15px 0 10px;
+		text-decoration: none;
+		color: #E05555;
+	}
+	a:hover{
+		color: white;
 	}
 	.row{
 		margin-bottom: 25px;
@@ -208,13 +229,11 @@ header{
 		background: #E05555;
 		border: none;
 		padding: 5px 30px;
+		margin-bottom: 20px;
 	}
 	button:hover{
 		background-color: #cdcdcd;
 		color: #E05555;
-	}
-	.send-btn{
-		margin: 0 10.5%;
 	}
 }
 .contact-us{
@@ -226,7 +245,7 @@ header{
 		color: #E05555;
 	}
 	.contact{
-		margin: 25px 0 0 13%;
+		margin-top: 28px;
 		display: flex;
 		p{
 			margin-right: 30px;
@@ -242,7 +261,13 @@ header{
 		margin-left: 35%;
 	}
 }
-
+@media only screen and (max-width: 1440px) {
+	.banners-img-element{
+		img{
+			max-height: 800px;
+		}
+	}
+}
 @media only screen and (max-width: 1024px) {
 	.about-us{
 		p{
@@ -251,6 +276,18 @@ header{
 	}
 }
 @media only screen and (max-width: 768px) {
+	header{
+		.logo{
+			img{
+				width: 150px;
+			}
+		}
+		.nav{
+			a{
+				font-size: 14px;
+			}
+		}
+	}
 	.image-price{
 		.product-image{
 			img{
@@ -266,15 +303,40 @@ header{
 			}
 		}
 	}
-	.col-md-12{
-		margin:0 15%;
-	}
 	.order-now{
 		.product-info{
 			margin-left:20%;
 		}
 		.buy-product{
 			margin-left: 20%;
+		}
+		.col-sm-6{
+			width: 45%;
+		}
+	}
+}
+@media only screen and (max-width: 568px) {
+	.product-image-price{
+		display: none;
+	}
+	.order-now{
+		.col-xs-12{
+			width: 70%;
+		}
+		.product-info{
+			margin-left: 0;
+			padding-left: 17%;
+		}
+	}
+	.contact-us{
+		.contact{
+			margin-top: 10px;
+		}
+	}
+	.slick-slider{
+		height: 300px;
+		.slick-track{
+			height: 255px;
 		}
 	}
 }

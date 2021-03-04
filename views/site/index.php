@@ -41,7 +41,7 @@ $this->title = 'Fireplace';
                 <?php foreach ($productsF as $product) {?>
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+                            <div class="сol-xs-12 col-sm-6 col-md-6 col-lg-6 product-image-price">
                                 <div class="image-price">
                                     <div class="product-image">
                                         <img src="<?= $product->getImage()?>">
@@ -51,9 +51,17 @@ $this->title = 'Fireplace';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
-                                <div class="title"><h2 class="product-title"><?= $product->title?></h2></div>
-                                <div class="description">
+                            <div class="сol-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="image-price-hide">
+                                    <div class="product-image">
+                                        <img src="<?= $product->getImage()?>">
+                                    </div>
+                                    <div class="price">
+                                        <span><?= $product->price?> ₴</span>
+                                    </div>
+                                </div>
+                                <div class="title title-top"><h2 class="product-title"><?= $product->title?></h2></div>
+                                <div class="description description-top">
                                     <p>
                                         <?php
                                         if(Yii::$app->language == 'ua') {
@@ -64,10 +72,17 @@ $this->title = 'Fireplace';
                                         ?>
                                     </p>
                                 </div>
-                                <div class="buy-btn" type="button" product_title="<?= $product->title?>">
-                                    <a href="#contact-us">
-                                    BUY
-                                    </a>
+                                <div class="buttons">
+                                    <div class="show-btn-top" id="show-btn" type="button">
+                                        <a>
+                                            SHOW
+                                        </a>
+                                    </div>
+                                    <div class="buy-btn" type="button" product_title="<?= $product->title?>">
+                                        <a href="#contact-us">
+                                            BUY
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +95,7 @@ $this->title = 'Fireplace';
                 <?php foreach ($productsC as $product) {?>
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+                            <div class="сol-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="title"><h2><?= $product->title?></h2></div>
                                 <div class="description">
                                     <p>
@@ -99,7 +114,7 @@ $this->title = 'Fireplace';
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+                            <div class="сol-xs-12 col-sm-6 col-md-6 col-lg-6 product-image-price">
                                 <div class="image-price">
                                     <div class="price">
                                         <span><?= $product->price?> ₴</span>
@@ -126,17 +141,17 @@ $this->title = 'Fireplace';
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="сol-xs-12 col-md-4">
                 <img src="" alt="">
                 <h2><?= $settings['why-us-reason-1']?></h2>
                 <p><?= $settings['why-us-description-1']?></p>
             </div>
-            <div class="col-md-4">
+            <div class="сol-xs-12 col-md-4">
                 <img src="" alt="">
                 <h2><?= $settings['why-us-reason-2']?></h2>
                 <p><?= $settings['why-us-description-2']?></p>
             </div>
-            <div class="col-md-4">
+            <div class="сol-xs-12 col-md-4">
                 <img src="" alt="">
                 <h2><?= $settings['why-us-reason-3']?></h2>
                 <p><?= $settings['why-us-description-3']?></p>
@@ -156,46 +171,60 @@ $this->title = 'Fireplace';
         ]]); ?>
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
-                    <?= $form->field($contact_model, 'name', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['name']])->label($settings['name'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'surname', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['surname']])->label($settings['surname'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'address', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['address']])->label($settings['address'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'location', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['location']])->label($settings['location'] . "<span> * </span>");?>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <?= $form->field($contact_model, 'name', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['name']])->label($settings['name'] . "<span> * </span>"); ?>
+                    <?= $form->field($contact_model, 'surname', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['surname']])->label($settings['surname'] . "<span> * </span>"); ?>
+                    <?= $form->field($contact_model, 'address', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['address']])->label($settings['address'] . "<span> * </span>"); ?>
+                    <?= $form->field($contact_model, 'location', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['location']])->label($settings['location'] . "<span> * </span>");?>
                 </div>
-                <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
-                    <?= $form->field($contact_model, 'region', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['region']])->label($settings['region'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'post', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['phone']])->label($settings['post'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'phone', ['options' => ['class' => 'contact-form-input aa']])->widget(PhoneInput::className(), [
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <?= $form->field($contact_model, 'region', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['region']])->label($settings['region'] . "<span> * </span>"); ?>
+                    <?= $form->field($contact_model, 'post', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['phone']])->label($settings['post'] . "<span> * </span>"); ?>
+                    <?= $form->field($contact_model, 'phone', ['options' => ['class' => 'center-block contact-form-input aa']])->widget(PhoneInput::className(), [
                         'jsOptions' => [
                             'preferredCountries' => ['ua', 'ru'],
                         ]])->label($settings['phone'] . "<span> * </span>"); ?>
-                    <?= $form->field($contact_model, 'email', ['options' => ['class' => 'contact-form-input']])->textInput(['placeholder'=>$settings['email']])->label($settings['email']); ?>
+                    <?= $form->field($contact_model, 'email', ['options' => ['class' => 'center-block contact-form-input']])->textInput(['placeholder'=>$settings['email']])->label($settings['email']); ?>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 product-info">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 product-info">
                     <p><?= $settings['products']?> :</p>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
-                    <p href="" class="buy-product"><?= $settings['choose-product']?></p>
+                <div class="col-xs-7 col-sm-3 col-md-9 col-lg-9">
+                    <a href="#products" class="buy-product clients-product"><?= $settings['choose-product']?></a>
                 </div>
             </div>
         </div>
     <?php ActiveForm::end(); ?>
         <div class="send-btn">
-            <button type="submit" class="contact-form want-design send-form" name="contact-button">Відправити</button>
-            <span class="form-aftersent" style="display: none; "></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="center-block contact-form want-design send-form" name="contact-button">Відправити</button>
+                    </div>
+                    <div class="col-12">
+                        <span class="text-center form-aftersent" style="display: none; "></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <div class="contact-us" id="contact-us">
-    <h2><?= $settings['contacts']?></h2>
-    <div class="contact">
-        <p>Вадим</p>
-        <p>+38090??????</p>
-    </div>
-    <div class="contact">
-        <p>Женя</p>
-        <p>+38050??????</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h2 class="text-center"><?= $settings['contacts']?></h2>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 contact">
+                <p class="text-center">Вадим</p>
+                <p>+38090??????</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 contact">
+                <p class="text-center">Женя</p>
+                <p>+38050??????</p>
+            </div>
+        </div>
     </div>
 </div>

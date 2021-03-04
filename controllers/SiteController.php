@@ -163,13 +163,14 @@ class SiteController extends Controller
             $region = $request->post('region');
             $post = $request->post('post');
             $email = $request->post('email');
+            $product = $request->post('product');
 
             $test_chat = '-448380030';
             $prod_chat = '-448380030';
 
             $result = Yii::$app->telegram->sendMessage([
                 'chat_id' => $prod_chat,
-                'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email
+                'text'    => "Новий запит на зворотній дзвінок." . "\n Імя: ".$name. "\n Surname: ".$surname. "\n Address: " .$address. "\n Location: " .$location. "\n Post Index: " .$post. "\n Номер: ".$phone. "\n Email: " .$email. "\n Продукт: " .$product
             ]);
 
             Clients::create($name, $surname, $address, $location, $region, $post, $phone, $email);
